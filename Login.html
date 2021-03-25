@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>Login</title>
+   <meta charset="utf-8">
+        <link rel="stylesheet" href="Css/registration.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+</head>
+
+<body>
+   <div class="container">
+    <ul class="menu-main">
+        <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg">
+         <li><a href="Nasa.html" >Nasa</a></li>
+         <li><a href="Planets.html">Planets</a></li>
+         <li><a href="MyAccount.html">My Account</a></li>
+         <li><a href="Login.html"class="current">Login</a></li>
+         <li><a href="Registration.html">Registration</a></li>
+         <li><a href="searchPage.html">Search</a></li>
+         <td>
+            <span class="glyphicon glyphicon-globe"></span>
+            <select name="select">
+                <option value="o1">Russian</option>
+                <option value="o2">English</option>
+                <option value="o3">Kazakh</option>
+            </select>
+         </td>
+
+      <div class="container-fluid">
+        <div>
+            <section class="contact-form">
+              <h1>Login</h1>
+              <form id="formElem">
+            
+                <div class="input-group">
+                  <label for="email" required>Email Address</label>
+                  <input id="email" name="email" type="email"/>
+                </div>
+                <div id='result'></div>
+                <div class = "input-group">
+                  <label for="psw">Password</label>
+                  <input type="password" name="password" pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                 
+                </div>
+                
+                <button type="submit" value="Send" id="check" required>Send It!</button>
+              </form>
+              <script>
+                formElem.onsubmit = async (e) => {
+                  e.preventDefault();
+              
+                  let response = await fetch('https://my-json-server.typicode.com/marataisaya/demo/login', {
+                    method: 'POST',
+                    body: new FormData(formElem)
+                  })
+                  .then((response) => response.json())
+            .then((data) => {
+              console.log('Success:', data);
+              alert("You are succesfully logged in!")
+              window.location.href = "file:///C:/Users/Lenovo/Desktop/WEB%20Rasul%20Kairgeldin/Final%20Project/Nasa/MyAccount.html";
+            })
+            .catch((error) => {
+              console.error('Error:', error);
+            });
+                };
+                
+              </script>
+            </section>
+          </div>
+          
+      </div>
+   </div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <title>Registration</title>
+  <meta charset="utf-8">
+       <link rel="stylesheet" href="Css/registration.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     
+</head>
+
+<body> 
+  <div class="container">
+    <ul class="menu-main">
+      <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg">
+       <li><a href="Nasa.html" >Nasa</a></li>
+       <li><a href="Planets.html">Planets</a></li>
+       <li><a href="MyAccount.html">My Account</a></li>
+       <li><a href="Login.html" >Login</a></li>
+       <li><a href="Registration.html" class="current">Registration</a></li>
+       <li><a href="searchPage.html">Search</a></li>
+       <td>
+          <span class="glyphicon glyphicon-globe"></span>
+          <select name="select">
+              <option value="o1">Russian</option>
+              <option value="o2">English</option>
+              <option value="o3">Kazakh</option>
+          </select>
+       </td>
+
+    <div class="container-fluid">
+      <div>
+        <section class="contact-form">
+          <h1>Registration form</h1>
+          <form method="POST" id="formElem" >
+            
+            <div class="input-group">
+              <label for="name" required>Username</label>
+              <input id="name" name="name" type="text"/>
+            </div>
+            
+            <div class="input-group">
+              <label for="email" required>Email Address</label>
+              <input id="email" name="email" type="email"/>
+            </div>
+            <div id='result'></div>
+            <div class = "input-group">
+              <label for="psw">Password</label>
+              <input type="password" id="psw" name="psw" pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}"  title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"  required>
+              <label for="ConfirmPassword" name="ConfirmPassword">Confirm Password</label>
+              <input type="password" id="ConfirmPassword" />
+              
+            </div>
+            
+            <button type="submit" name="submit" id="check" onclick="function Validate()" required>Send It!</button>
+            
+          </form>
+          <script>
+            formElem.onsubmit = async (e) => {
+              e.preventDefault();
+          
+              let response = await fetch('https://my-json-server.typicode.com/marataisaya/demo/registration', {
+                method: 'POST',
+                body: new FormData(formElem)
+              })
+              .then((response) => response.json())
+        .then((data) => {
+          console.log('Success:', data);
+          alert("You have succesfully registered!")
+          window.location.href = "file:///C:/Users/Lenovo/Desktop/WEB%20Rasul%20Kairgeldin/Final%20Project/Nasa/Login.html";
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+            };
+  
+          </script>
+          
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

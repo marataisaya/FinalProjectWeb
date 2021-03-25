@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="Css/Nasa.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        
+    </head>
+    <body>
+        
+   <div class="container">
+    <ul class="menu-main">
+      <img src="https://www.nasa.gov/sites/all/themes/custom/nasatwo/images/nasa-logo.svg">
+       <li><a href="Nasa.html" >Nasa</a></li>
+       <li><a href="Planets.html">Planets</a></li>
+       <li><a href="MyAccount.html">My Account</a></li>
+       <li><a href="Login.html">Login</a></li>
+       <li><a href="Registration.html">Registration</a></li>
+       <li><a href="searchPage.html" class="current">Search</a></li>
+       <td>
+          <span class="glyphicon glyphicon-globe"></span>
+          <select name="select">
+              <option value="o1">Russian</option>
+              <option value="o2">English</option>
+              <option value="o3">Kazakh</option>
+          </select>
+       </td>
+      </ul>
+    
+    <div class="container-fluid">
+        <div class="container">
+            <br><br>
+            <h1 style="text-align: center">
+                Display data of registered users by id
+            </h1>
+            <form id="myForm" autocomplete="off">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="search" placeholder="Search Username" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-danger btn-block">
+                        Search User
+                    </button>
+                </div>
+            </form>
+            <div id="result"></div>
+        </div>
+        <script src="Js/search.js"></script>
+        <br><br>
+        <div class="container">
+            <br><br>
+            <h1 style="text-align: center">
+                Withdraw the pilots by id
+            </h1>
+            
+            <p>Pilot names:</p>
+            <ol>
+                <li>Troy A. Asher</li>
+                <li>Andrew C. Barry</li>
+                <li>Cory G. Bartholomew</li>
+                <li>Donald Stu Broce</li>
+                <li>David Fedors</li>
+            </ol>
+            <form id="myFormPilot" autocomplete="off" method="GET">
+                <div class="form-group" >
+                    <input type="text" class="form-control" id="searchPilots" placeholder="Search Username" required>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-danger btn-block">
+                        Search pilots
+                    </button>
+                </div>
+            </form>
+            <div id="resultPilot"></div>
+        </div>
+        <script src="Js/searchPilot.js"></script>
+        <div class="img"></div>
+    </body>
+    
+    </div>
+   </div>
+        
+</html>
